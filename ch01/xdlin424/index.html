@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p>第一个输入框:</p>
+    <input id="model1" type="text">
+    <p>第二个输入框:</p>
+    <input id="model2" type="text">
+</div>
+
+<script>
+    let info1 = document.getElementById('model1');
+    let info2 = document.getElementById('model2');
+
+    let model = {};
+    Object.defineProperty(model, 'text', {
+        get() {
+            console.log(model);
+            return info1.value;
+        },
+        set(newValue) {
+            console.log(newValue);
+            info1.value = newValue;
+        }
+    });
+
+    info1.oninput = () => {
+        // console.log(info1.value);
+        info2.value = model.text;
+    };
+    info2.oninput = () => {
+        // console.log(info2.value);
+        model.text = info2.value;
+    };
+
+
+</script>
+
+
+</body>
+</html>
