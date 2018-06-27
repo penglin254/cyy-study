@@ -13,7 +13,7 @@ function Nue(options) {
  * @private
  */
 Nue.prototype._init = function (options) {
-        this.$options = options;  //传入的实例配置
+    this.$options = options;  //传入的实例配置
     this.$el = document.querySelector(options.el); //实例绑定的根节点
     this.$data = options.data;  //实例的数据域
     this.$methods = options.methods; //实例的函数域
@@ -77,24 +77,6 @@ Nue.prototype._parseData = function (obj) {
     }
 };
 
-/**
- * 遍历函数域，对绑定的函数进行改造
- * @param funcList
- * @private
- */
-Nue.prototype._parseFunc = function (funcList) {
-    var _this = this;
-    for (var key in funcList) {
-        if (funcList.hasOwnProperty(key)) {
-            var func = funcList[key];
-            funcList[key] = (function () {
-                return function () {
-                    func.apply(_this.$data, arguments);
-                };
-            })();
-        }
-    }
-};
 
 /**
  * 定义指令
@@ -106,7 +88,6 @@ Nue.prototype._parseFunc = function (funcList) {
  * @constructor
  */
 function Directive(name, el, vm, exp, attr) {
-    this.name = name;   //指令名称，例如文本节点，该值设为"text"
     this.el = el;       //指令对应的DOM元素
     this.vm = vm;       //指令所属Nue实例
     this.exp = exp;     //指令对应的值，本例如"count"
