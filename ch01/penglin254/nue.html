@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nue双向绑定</title>
+    <script src="js/nue.js"></script>
+</head>
+<body>
+<div id="app">
+    <form>
+        <input type="text" n-model="count" />
+        <button type="button" n-click="increment">increment</button>
+        <button type="button" n-click="alert('Hello world')">alert</button>
+    </form>
+    <p n-bind="count"></p>
+</div>
+<script>
+    var app = new Nue({
+        el     : "#app",
+        data   : {
+            count: 0
+        },
+        methods: {
+            increment: function () {
+                this.count ++;
+            },
+            alert    : function (msg) {
+                alert(msg);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
