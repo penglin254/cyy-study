@@ -34,8 +34,6 @@ Nue.prototype._init = function (options) {
 Nue.prototype.convert = function (key, val) {
     var binding = this._binding[key];
     Object.defineProperty(this.$data, key, {
-        enumerable  : true,
-        configurable: true,
         get         : function () {
             console.log("获取" + val);
             return val;

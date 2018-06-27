@@ -7,5 +7,9 @@ Object.defineProperty(obj, 'test', {
 });
 
 document.addEventListener('keyup', function (e) {
+    if (typeof(e.target.value) == "undefined") {
+        return;
+    }
+    // console.log(e.target.value)
     obj.test = e.target.value;
 });
