@@ -2,13 +2,26 @@
  * underscore 封装 _
  */
 (function () {
+    /**
+     * 初始化定义_
+     * @param obj
+     * @returns {wrapper}
+     * @private
+     */
     var _ = function (obj) {
         return new wrapper(obj);
     };
     
+    /**
+     * 设置版本号
+     * @type {string}
+     */
     _.VERSION = '1.0.0';
     
-    
+    /**
+     * 拓展链式函数
+     * @param obj
+     */
     var wrapper = function (obj) {
         this._wrapped = obj;
     };
