@@ -34,11 +34,11 @@ Nue.prototype._init = function (options) {
 Nue.prototype.convert = function (key, val) {
     var binding = this._binding[key];
     Object.defineProperty(this.$data, key, {
-        get         : function () {
+        get: function () {
             console.log("获取" + val);
             return val;
         },
-        set         : function (newVal) {
+        set: function (newVal) {
             console.log("更新" + newVal);
             if (val != newVal) {
                 val = newVal;
@@ -147,7 +147,9 @@ Nue.prototype._compile = function (root) {
                 ));
                 
                 return function () {
+                    console.log(key, nodes,attrVal,node);
                     _this.$data[attrVal] = nodes[key].value;
+                    
                 };
             })(i));
         }
